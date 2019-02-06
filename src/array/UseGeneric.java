@@ -97,6 +97,18 @@ public class UseGeneric <E>{
     }
 
     /**
+     * 查询第一个元素
+     * */
+    public E getFirst(){
+        return get(0);
+    }
+    /**
+     * 查询第最后一个元素
+     * */
+    public E getLast(){
+        return get(size-1);
+    }
+    /**
      * 元素的修改
      * @param index 修改的索引
      * @param e 修改为的元素
