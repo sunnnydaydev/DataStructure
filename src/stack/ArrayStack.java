@@ -9,7 +9,6 @@ import array.UseGeneric;
  */
 public class ArrayStack<E> implements Stack<E> {
     private UseGeneric<E> array;// 成员  动态数组对象引用
-
     // 构造
     public ArrayStack(int capacity){
           array = new UseGeneric<>(capacity);

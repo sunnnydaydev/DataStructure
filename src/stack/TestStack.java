@@ -10,7 +10,6 @@ public class TestStack {
             arrayStack.push(i);
         }
         System.out.println(arrayStack.toString());
-
         arrayStack.pop();
         System.out.println(arrayStack.toString());
     }
