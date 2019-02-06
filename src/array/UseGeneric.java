@@ -157,7 +157,7 @@ public class UseGeneric <E>{
             throw new IllegalArgumentException("remove failed index is illegal");
         }
         E tempElement = data[index];
-        for (int i=index+1;i<=size;i++){
+        for (int i=index+1;i<size;i++){
             data[i-1] = data[i];
         }
         size--;

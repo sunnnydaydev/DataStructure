@@ -1,0 +1,15 @@
+   概念
+队列：先进先出（FIFO）数据结构
+与栈的区别：表面上知识取数据的不同（一个从头取出，一个从尾部）
+
+   方法：
+ void enqueue（E e） 入队
+ E dequeue（）出队
+ E getFront（） 队首
+ int getSize（）
+ boolean isEmpty（）
+
+    构建：
+ 用户不关心实现方式  我们使用动态数组（使用链表也可以实现）
+
+实现：（使用ArrayXXX命名表示为底层使用数组实现）

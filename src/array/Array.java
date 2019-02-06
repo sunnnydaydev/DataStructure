@@ -80,9 +80,10 @@ public class Array {
             throw new IllegalArgumentException("add element fail ,require index>0  or index<=size");
         }
         // 数据先向后挪，再添加。 否则会发生数据覆盖
-
+        // 添加数据时遍历索引 从后往前遍历
         for (int i = size - 1; i >= index; i--) {
-            data[i + 1] = data[i];
+            data[i + 1]  = data[i];
+
         }
         data[index] = e;
         size++;
@@ -158,6 +159,7 @@ public class Array {
             throw new IllegalArgumentException("remove failed index is illegal");
         }
         int tempElement = data[index];
+        // index+1<=size
         for (int i=index+1;i<=size;i++){
             data[i-1] = data[i];
         }

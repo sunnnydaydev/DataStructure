@@ -1,5 +1,4 @@
 package stack;
-
 /**
  * Create by SunnyDay on 2019/02/05
  * <p>
@@ -216,9 +215,6 @@ package stack;
 /**
  * 解决括号匹配问题
  * */
-
-import java.util.Stack;
-
 public class Solution {
     public boolean isValid(String s) {
         // 此处使用java util 包下的Stack 类实现算法，方便我们提交
@@ -229,10 +225,12 @@ public class Solution {
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
             } else {
+                // 其他的字符（非法字符，上述以外的字符例如：“sdfasfasdfasf”）
                 if (stack.isEmpty()) {
                     return false;
                 }
                 char topC = stack.pop();
+                // 匹配成功就出栈了，匹配失败直接出结果
                 if (c == ')' && topC != '(') {
                     return false;
                 }
@@ -252,6 +250,18 @@ public class Solution {
 
     //  测试
     public static void main(String[] args) {
-        System.out.println(new Solution().isValid("[]"));
+        System.out.println(new Solution().isValid(" "));
+//        ArrayStack<Character> characterStack = new ArrayStack<>();
+//        String s  = "([{}])";
+//        for (int i = 0; i < s.length(); i++) {
+//            char c = s.charAt(i);
+//            // 为左边的自符时都入栈
+//            if (c == '(' || c == '[' || c == '{') {
+//                characterStack.push(c);
+//                System.out.println(characterStack.getSize());
+//            }
+//        }
+//        characterStack.pop();
+//        System.out.println(characterStack.getSize());
     }
 }
