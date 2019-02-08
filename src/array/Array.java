@@ -160,7 +160,7 @@ public class Array {
         }
         int tempElement = data[index];
         // index+1<=size
-        for (int i=index+1;i<=size;i++){
+        for (int i=index+1;i<size;i++){
             data[i-1] = data[i];
         }
         size--;
