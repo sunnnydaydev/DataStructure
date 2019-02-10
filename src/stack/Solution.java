@@ -2,7 +2,7 @@ package stack;
 /**
  * Create by SunnyDay on 2019/02/05
  * <p>
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * <p>
  * An input string is valid if:
@@ -37,7 +37,7 @@ package stack;
  * <p>
  * 解决括号匹配问题
  * <p>
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * <p>
  * An input string is valid if:
@@ -72,7 +72,7 @@ package stack;
  * <p>
  * 解决括号匹配问题
  * <p>
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * <p>
  * An input string is valid if:
@@ -107,7 +107,7 @@ package stack;
  * <p>
  * 解决括号匹配问题
  * <p>
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * <p>
  * An input string is valid if:
@@ -142,7 +142,7 @@ package stack;
  * <p>
  * 解决括号匹配问题
  * <p>
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * <p>
  * An input string is valid if:
@@ -178,7 +178,7 @@ package stack;
  * 解决括号匹配问题
  */
 /**
- * Leetcode  test 21
+ * Leetcode  LinkedListStackTest 21
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  *
  * An input string is valid if:
