@@ -35,7 +35,7 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     private Node head;//头结点 （不再使用虚拟头结点 因为不需要中间添加删除操作，只在首部尾部）
     private Node tail; //   尾节点 最后一个节点的引用
-    private int size;
+    private int  size;
 
     public LinkedListQueue() {
         head = null;

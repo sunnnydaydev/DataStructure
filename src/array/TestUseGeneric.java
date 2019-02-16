@@ -1,5 +1,7 @@
 package array;
 
+import java.util.ArrayList;
+
 /**
  * Create by SunnyDay on 2019/02/01
  * 测试泛型数组
@@ -26,5 +28,6 @@ public class TestUseGeneric {
         System.out.println(array.toString());
         array.removeElement(9);
         System.out.println(array.toString());
+
     }
 }
