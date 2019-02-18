@@ -1,5 +1,7 @@
 package binarySearchTree;
 
+import java.util.Stack;
+
 /**
  * Create by SunnyDay on 2019/02/16
  * binary search tree  二分搜索树
@@ -61,8 +63,8 @@ public class BST<E extends Comparable<E>> {
             add(root, e);
         }*/
 
-       // 优化
-       root = add(root,e);
+        // 优化
+        root = add(root, e);
     }
 
     /**
@@ -91,14 +93,14 @@ public class BST<E extends Comparable<E>> {
         // 开始递归调用  往下面遍历
         if (e.compareTo(node.e) < 0) {
             addTest(node.left, e);
-        } else if (e.compareTo(node.e)>0){
+        } else if (e.compareTo(node.e) > 0) {
             addTest(node.right, e);
         }
     }
 
     /**
      * 插入的递归优化 （参考addTest ）
-     * */
+     */
     private Node add(Node node, E e) {
         // 为空时创建元素  这个空的就是要插入的位置
         if (node == null) {
@@ -113,4 +115,146 @@ public class BST<E extends Comparable<E>> {
         }
         return node;
     }
+
+    /**
+     * 是否包含元素
+     *
+     * @param e 目标元素
+     */
+    public boolean contain(E e) {
+        return contain(root, e);
+    }
+
+
+    /**
+     * @param node 以node为根节点的节点
+     * @param e    目标元素
+     */
+    private boolean contain(Node node, E e) {
+        // 树空
+        if (node == null) {
+            return false;
+        }
+        //此节点含有元素时
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) < 0) {
+            // 比此元素小 递归左面找
+            return contain(node.left, e);
+        } else {
+            //(e.compareTo(node.e) > 0)
+            // 比此元素大 递归右面找
+            return contain(node.right, e);
+        }
+    }
+
+    /**
+     * 二分搜索树 --前序遍历
+     */
+    public void preOrder() {
+        System.out.println("树中的元素：");
+        preOrder(root);
+    }
+
+    /**
+     * 前序遍历以node为根的二分搜索树
+     **/
+    private void preOrder(Node node) {
+      /* if (node == null){
+           return;
+       }*/
+
+        // 熟练递归后写法 不拘谨与定义
+        if (node != null) {
+            System.out.print(node.e + "  ");
+            // 递归遍历
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+
+        /*递归总结（通常）：
+         * 先写递归终止条件，在写递归组成逻辑。
+         * */
+    }
+
+    /**
+     * 二分搜索树非递归前序遍历
+     *
+     * 前序：  根节点->左子树-->右子树
+     */
+    public void preOrderNR() {
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node currentElement = stack.pop();
+            System.out.println(currentElement.e);
+            if (currentElement.right!=null){
+                stack.push(currentElement.right);
+            }
+            if (currentElement.left!=null){
+                stack.push(currentElement.left);
+            }
+        }
+    }
+
+    /**
+     * 中序遍历 递归实现
+     */
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    /**
+     * 中序遍历
+     *
+     * @param node 以node为根节点的节点
+     */
+    private void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        generateBSTString(root, 0, sb);
+        return sb.toString();
+    }
+
+    private void generateBSTString(Node node, int depth, StringBuilder sb) {
+        if (node == null) {
+            sb.append(generateDepthString(depth) + "null\n");
+            return;
+        }
+        sb.append(generateDepthString(depth) + node.e + "\n");
+        // 递归调用（前序遍历  访问顺序：根节点-左子树，右子树）
+        generateBSTString(node.left, depth + 1, sb);
+        generateBSTString(node.right, depth + 1, sb);
+    }
+
+    private String generateDepthString(int depth) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            sb.append("--");
+        }
+        return sb.toString();
+    }
 }
+
