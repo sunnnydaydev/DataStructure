@@ -178,19 +178,19 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 二分搜索树非递归前序遍历
-     *
+     * <p>
      * 前序：  根节点->左子树-->右子树
      */
     public void preOrderNR() {
         Stack<Node> stack = new Stack<>();
         stack.push(root);
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             Node currentElement = stack.pop();
             System.out.println(currentElement.e);
-            if (currentElement.right!=null){
+            if (currentElement.right != null) {
                 stack.push(currentElement.right);
             }
-            if (currentElement.left!=null){
+            if (currentElement.left != null) {
                 stack.push(currentElement.left);
             }
         }
