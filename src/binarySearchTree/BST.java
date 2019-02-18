@@ -163,7 +163,6 @@ public class BST<E extends Comparable<E>> {
       /* if (node == null){
            return;
        }*/
-
         // 熟练递归后写法 不拘谨与定义
         if (node != null) {
             System.out.print(node.e + "  ");
