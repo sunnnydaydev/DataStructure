@@ -25,5 +25,9 @@ public class TestBST {
         bst.preOrderNR();
         System.out.println("-----");
         bst.levelOrder();
+        System.out.println("-----最小：");
+        System.out.println(bst.minimum());
+        System.out.println("-----最大：");
+        System.out.println(bst.maxmum());
     }
 }
