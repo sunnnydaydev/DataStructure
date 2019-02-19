@@ -336,6 +336,69 @@ public class BST<E extends Comparable<E>> {
         return node;
     }
 
+    /**
+     * 删除以e 为节点的元素
+     */
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    /**
+     * 删除以node为根的二分搜索树中 值为e的节点  递归算法
+     * <p>
+     * 返回删除节点后，新的二分搜索树的根
+     */
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+        // 递归寻找
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else {
+             /*e.compareTo(node.e)==0
+              找到了删除节点
+              三种情况：
+                  1 待删除的节点左子树为空
+                  2  待删除节点的右子树为空
+                  3 待删除节点左右子树都不为空
+              */
+             if (node.left==null){
+                 Node rightNode= node.right;
+                 node.right = null;
+                 size--;
+                 return rightNode;
+             }
+            if (node.right==null){
+                Node leftNode= node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+            /*
+            * 待删除节点的左右孩子都不为空时思路：
+            * 1 找到比待删除节点大的最小节点
+            * 2 用这个节点顶替待删除节点
+            * */
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+
+            node.left=node.right=null;//call gc
+            return successor;
+            /*
+            本栗子：找的后继：以删除节点右子树为根节点找最小值
+                     前驱：以删除节点左子树为根节点找最大值
+            *
+            * */
+        }
+
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
