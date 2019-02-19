@@ -23,5 +23,7 @@ public class TestBST {
         System.out.println("-----");
         bst.postOrder();
         bst.preOrderNR();
+        System.out.println("-----");
+        bst.levelOrder();
     }
 }

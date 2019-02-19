@@ -1,5 +1,7 @@
 package binarySearchTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -228,6 +230,25 @@ public class BST<E extends Comparable<E>> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
+    }
+
+    /**
+     * 二分搜索树的广度优先遍历(使用队列实现)
+     */
+    public void levelOrder() {
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            Node cur = queue.remove();
+            System.out.println(cur.e);
+            if (cur.left!=null){
+               queue.add(cur.left);
+            }
+            if (cur.right!=null){
+                queue.add(cur.right);
+            }
+        }
+
     }
 
     @Override
