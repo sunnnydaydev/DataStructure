@@ -160,16 +160,19 @@ public class LinkedList<E> {
      * @param e 元素
      */
     public boolean contain(E e) {
-        // 遍历每个元素 发现返回true（第一次出现）
-        Node currentElement = dummyHead.next;
-        while (currentElement.next != null) {
-            //equals元素的放置位置
-            if (currentElement.e.equals(e)) {
 
-                return true;
+            // 遍历每个元素 发现返回true（第一次出现）
+            Node currentElement = dummyHead.next;
+            while (currentElement != null) {
+                //equals元素的放置位置
+                if (currentElement.e.equals(e)) {
+
+                    return true;
+                }
+                currentElement = currentElement.next;
             }
-            currentElement = currentElement.next;
-        }
+
+
         return false;
     }
 
@@ -206,6 +209,27 @@ public class LinkedList<E> {
      */
     public E removeLast() {
         return remove(size - 1);
+    }
+
+    /**
+     * 删除任意元素
+     */
+    public void removeElement(E e) {
+        Node prev = dummyHead;
+        // 找到前一个元素
+        while (prev.next != null) {
+            if (prev.next.e.equals(e)) {
+                break;
+            }
+            prev = prev.next;
+        }
+
+        //要删除的元素非空时
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+        }
     }
 
     /**
