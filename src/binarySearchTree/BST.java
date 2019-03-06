@@ -381,7 +381,7 @@ public class BST<E extends Comparable<E>> {
             }
             /*
             * 待删除节点的左右孩子都不为空时思路：
-            * 1 找到比待删除节点大的最小节点
+            * 1 找到以待删除节点为根节点的最小节点
             * 2 用这个节点顶替待删除节点
             * */
             Node successor = minimum(node.right);
