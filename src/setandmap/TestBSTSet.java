@@ -21,6 +21,7 @@ public class TestBSTSet {
         linkedListSet.add("john");
         linkedListSet.add("tom");
         System.out.println(linkedListSet.getSize());
+        System.out.println("-------------------");
 
     }
 }
