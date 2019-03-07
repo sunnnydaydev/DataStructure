@@ -23,8 +23,18 @@ public class TestMap {
         System.out.println("map.get(1):"+map.get(1));
         map.set(3,"aaa");
         System.out.println("map.get(3)"+map.get(3));
-
         System.out.println("remove"+map.remove(2));
+
+        System.out.println("_________________________");
+
+        BSTMap<String,String>bstMap = new BSTMap<>();
+        bstMap.add("1","tom");
+        bstMap.add("2","kate");
+        bstMap.add("1","aaa");// 覆盖数据
+        System.out.println(bstMap.getSize());
+        System.out.println(bstMap.contains("1"));
+        System.out.println(bstMap.remove("2"));
+
 
 
     }
