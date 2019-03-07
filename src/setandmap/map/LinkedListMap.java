@@ -1,6 +1,5 @@
 package setandmap.map;
 
-import sun.rmi.runtime.Log;
 
 /**
  * Create by SunnyDay on 2019/03/07
