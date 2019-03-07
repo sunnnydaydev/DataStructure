@@ -1,5 +1,7 @@
 package setandmap.map;
 
+import sun.rmi.runtime.Log;
+
 /**
  * Create by SunnyDay on 2019/03/07
  * 以链表为基础实现 映射
@@ -58,7 +60,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
      * 构造
      * 对虚拟头结点，size 完成初始化
      */
-    public void LinkedListMap() {
+    public  LinkedListMap() {
         size = 0;
         dummyHead = new Node();
 
@@ -81,6 +83,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
      * @function 根据键获得节点的引用
      */
     private Node getNode(K key) {
+
         Node cur = dummyHead.next;
         while (cur != null) {
             if (cur.key.equals(key)) {
