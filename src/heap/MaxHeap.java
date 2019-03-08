@@ -67,4 +67,78 @@ public class MaxHeap<E extends Comparable<E>> {
     private int rightChild(int index) {
         return index * 2 + 2;// 公式 参考推导图
     }
+
+    /**
+     * 向堆中添加元素
+     */
+    public void add(E e) {
+        // 1 添加到末尾
+        data.addLast(e);
+        // 维护堆的性质（根父亲节点比较，看值是否合适，比父亲节点大就对调位置上浮，直到满足条件）
+        siftUp(data.getSize() - 1);// 左后一个元素的索引
+    }
+
+    /**
+     * @param k 元素的索引
+     *          元素上浮
+     */
+    private void siftUp(int k) {
+      //  E parent = data.get(parent(k));
+        //循环执行:  当前元素与父节点左比较，不符合就交换位置 ,直到符合为止
+        while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
+            data.swap(k, parent(k));
+            k = parent(k);
+        }
+    }
+
+    /**
+     * 堆中的最大元素
+     * <p>
+     * 最大堆中第一个元素就是最大元素
+     */
+    public E maxValue() {
+        if (data.getSize() == 0) {
+            throw new IllegalArgumentException("heap is empty");
+        }
+        return data.get(0);
+    }
+
+    /**
+     * 取出堆中的最大元素
+     */
+    public E extractMax() {
+        // 1 找出最大元素
+        E maxV = maxValue();
+        //2 吧最后一个元素替换最大元素
+        data.swap(0, data.getSize() - 1);
+        data.removeLast();
+        // 3 元素下浮处理（与左右节点比较）
+        siftDown(0);
+        return maxV;
+    }
+
+    /**
+     * 元素下沉处理
+     */
+    private void siftDown(int k) {
+        // 假如有左孩子时
+        // 从根节点开始 当左孩子的 索引大于元素的最大索引时结束循环
+        while (leftChild(k) < data.getSize()) {
+            int j = leftChild(k);// 记录左右孩子中最大孩子的索引，开始时默认左孩子的索引。
+            // 如果有右孩子时 切有孩子比左大
+            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0) {
+                j = rightChild(k);// 较大孩子的索引为又孩子的
+                /*
+                 * 如果没有有孩子，或者又孩子的节点存的值比左孩子小 if不成立，则孩子中最大值为左孩子
+                 * j就是用左孩子的索引
+                 * */
+            }
+            // 根节点 给 最大孩子比较  满足条件结束循环
+            if (data.get(k).compareTo(data.get(j)) >= 0) {
+                break;
+            }
+            data.swap(k, j);//更换元素
+            k = j;//给k重新赋值
+        }
+    }
 }

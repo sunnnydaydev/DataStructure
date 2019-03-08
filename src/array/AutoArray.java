@@ -151,18 +151,18 @@ public class AutoArray<E> {
      * @return int type   返回删除的元素
      */
     public E remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("remove failed index is illegal");
         }
         E tempElement = data[index];
-        for (int i = index + 1; i <= size; i++) {
+        for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
         size--;
         data[size] = null; // 引用制空
         // 当数组元素减少过多时达到容量一半时 开始动态缩小容量
-        if (size==data.length/2){
-            resize(data.length/2);
+        if (size == data.length / 2) {
+            resize(data.length / 2);
         }
         return tempElement;
     }
@@ -194,6 +194,20 @@ public class AutoArray<E> {
         if (index != -1) {
             remove(index);
         }
+    }
+
+    /**
+     * @param i 索引
+     * @param j 索引
+     * @function 交换两索引的元素
+     */
+    public void swap(int i, int j) {
+        if (i < 0 || i > size || j < 0 || j > size) {
+            throw new IllegalArgumentException("index is illegal");
+        }
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 
     // 加注解的好处 防止覆盖出错，当父类没有此方法时报错
