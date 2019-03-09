@@ -23,6 +23,17 @@ public class AutoArray<E> {
     }
 
     /**
+     * 用户传来任意数组，存入我们动态数组
+     */
+    public AutoArray(E[] arr) {
+        data = (E[]) new Object[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+
+    /**
      * 返回数组大小
      */
     public int getSize() {

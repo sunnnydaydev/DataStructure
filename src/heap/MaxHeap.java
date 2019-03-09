@@ -83,7 +83,7 @@ public class MaxHeap<E extends Comparable<E>> {
      *          元素上浮
      */
     private void siftUp(int k) {
-      //  E parent = data.get(parent(k));
+        //  E parent = data.get(parent(k));
         //循环执行:  当前元素与父节点左比较，不符合就交换位置 ,直到符合为止
         while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
             data.swap(k, parent(k));
@@ -140,5 +140,35 @@ public class MaxHeap<E extends Comparable<E>> {
             data.swap(k, j);//更换元素
             k = j;//给k重新赋值
         }
+    }
+
+    /**
+     * @param e 用户传来的元素
+     *          <p>
+     *          思路：替换堆顶元素，执行siftdown 满足堆的性质
+     * @function 将堆顶的元素替换为 用户传来的元素
+     * <p>
+     * 注意：使用的组合也可完成 取出最大元素（maxValue），添加末尾add（），   两次 o(logn) 操作
+     * 本思路就一次 o(logn)
+     */
+    public E replace(E e) {
+        E temp = data.get(0);
+        data.set(0, e);
+        siftDown(0);
+        return temp;
+    }
+
+    /**
+     * Heapify
+     * 将任意数组整理成堆的形状
+     * 写成构造就行了
+     */
+    public MaxHeap(E[] arr) {
+        data = new AutoArray<>(arr);// 元素存入数组，当成完全二叉树
+        // 在整理成堆
+        for (int i = parent(arr.length - 1); i >= 0; i--){
+            siftDown(i);
+        }
+
     }
 }
