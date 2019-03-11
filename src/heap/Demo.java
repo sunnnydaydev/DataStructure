@@ -1,7 +1,5 @@
 package heap;
 
-import sun.rmi.runtime.Log;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Random;
