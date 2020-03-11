@@ -1,23 +1,23 @@
 # DataStructure
 一 、数据结构的相关知识
 
-[0 write in front](https://blog.csdn.net/qq_38350635/article/details/86742355)
+[0、write in front](https://blog.csdn.net/qq_38350635/article/details/86742355)
 
-[1 深入探究数组](https://blog.csdn.net/qq_38350635/article/details/86744319)
+[1、深入探究数组](https://blog.csdn.net/qq_38350635/article/details/86744319)
 
-[2 数据结构之栈](https://blog.csdn.net/qq_38350635/article/details/86765982)
+[2、数据结构之栈](https://blog.csdn.net/qq_38350635/article/details/86765982)
 
-[3 数据结构之队列](https://blog.csdn.net/qq_38350635/article/details/86771147)
+[3、数据结构之队列](https://blog.csdn.net/qq_38350635/article/details/86771147)
 
-[4 数据结构之链表](https://blog.csdn.net/qq_38350635/article/details/86906834)
+[4、数据结构之链表](https://blog.csdn.net/qq_38350635/article/details/86906834)
 
-[5 踏进递归的门槛](https://blog.csdn.net/qq_38350635/article/details/87370615)
+[5、踏进递归的门槛](https://blog.csdn.net/qq_38350635/article/details/87370615)
 
-[6 数据结构之二分搜索树（BST）](https://blog.csdn.net/qq_38350635/article/details/87719607)
+[6、数据结构之二分搜索树（BST）](https://blog.csdn.net/qq_38350635/article/details/87719607)
 
-[7 数据结构之Set和Map的简单实现](https://blog.csdn.net/qq_38350635/article/details/88316865)
+[7、数据结构之Set和Map的简单实现](https://blog.csdn.net/qq_38350635/article/details/88316865)
 
-[8 数据结构之堆（最大堆）](https://blog.csdn.net/qq_38350635/article/details/88367918)
+[8、数据结构之堆（最大堆）](https://blog.csdn.net/qq_38350635/article/details/88367918)
 
 [9、线段树:待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/SegmentTree/%E7%BA%BF%E6%AE%B5%E6%A0%91.txt)
 
@@ -27,7 +27,7 @@
 
 [12、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
 
-[13:hash表：待续]()
+[13、hash表：待续]()
 
 
 
