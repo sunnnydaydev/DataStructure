@@ -25,7 +25,7 @@
 
 [11、AVL与平衡树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/avl/avl%E5%92%8C%E5%B9%B3%E8%A1%A1%E6%A0%91)
 
-[12、红黑树：待续]()
+[12、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
 
 [13:hash表：待续]()
 
