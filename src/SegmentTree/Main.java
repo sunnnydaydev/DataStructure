@@ -13,5 +13,7 @@ public class Main {
             }
         });
         System.out.println(segmentTree);
+
+        System.out.println(segmentTree.query(0,2));
     }
 }

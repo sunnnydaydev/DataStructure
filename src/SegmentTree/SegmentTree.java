@@ -79,6 +79,7 @@ public class SegmentTree<E> {
 
         // treeIndex 索引对应区间元素和则为其左右子树元素之和
         //tree[treeIndex] = tree[leftTreeIndex] + tree[rightTreeIndex];
+        //Operator '+' cannot be applied to 'E', 'E'
         //思考：+ 的使用范围应该是同种类型。
 //        Object a = 10;
 //        Object b  = "a";
@@ -87,6 +88,48 @@ public class SegmentTree<E> {
         // 上面不仅出现类型兼容问题，而且+的处理过于局限，用户只能处理区间之和。这里使用接口融合器
         // 消除兼容问题，并且业务逻辑用户自己实现。求和，区间极值都可。
         tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
+    }
+
+    /**
+     * @param queryL
+     * @param queryR
+     * @function 用户要查询的区间[queryL, queryR]
+     */
+    public E query(int queryL, int queryR) {
+        if (queryL < 0 ||
+                queryL > data.length ||
+                queryR < 0 ||
+                queryR > data.length ||
+                queryL > queryR) {
+            throw new IllegalArgumentException("index is illegal");
+        }
+        // 初始时从根节点开始查找，遍历整个线段树。
+        return query(0, 0, data.length - 1, queryL, queryR);
+    }
+
+    /**
+     * 在根节点为treeIndex，区间为[left,right] 中查询[queryL,queryR] 区间
+     */
+    private E query(int treeIndex, int left, int right, int queryL, int queryR) {
+        // 1、递归终结条件
+        if (left == queryL && right == queryR) {
+            return tree[treeIndex];
+        }
+        //2、划分区间
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+        int middle = left + (right - left) / 2;
+
+        // 3、判断区间
+        if (queryL >= middle + 1) { //[queryL,queryR] 区间在[left,right] 去见的右孩子区间
+            return query(rightTreeIndex, middle + 1, right, queryL, queryR);
+        } else if (queryR <= middle) {//[queryL,queryR] 区间在[left,right] 去见的左孩子区间
+            return query(leftTreeIndex, left, middle, queryL, queryR);
+        } else {//[queryL,queryR] 区间在[left,right] 区间的左右孩子都有
+            E leftResult = query(leftTreeIndex, left, middle, queryL, middle);
+            E rightResult = query(rightTreeIndex, middle + 1, right, middle + 1, queryR);
+            return merger.merge(leftResult, rightResult);
+        }
     }
 
     @Override
@@ -99,9 +142,9 @@ public class SegmentTree<E> {
             } else {
                 sb.append("null");
             }
-            if (i!=tree.length-1){
+            if (i != tree.length - 1) {
                 sb.append(",");
-            }else{
+            } else {
                 sb.append("]");
             }
         }
