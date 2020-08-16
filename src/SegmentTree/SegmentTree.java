@@ -132,6 +132,35 @@ public class SegmentTree<E> {
         }
     }
 
+    public void set(int index, E e) {
+        if (index < 0 || index >= data.length) {
+            throw new IllegalArgumentException("index is illegal");
+        }
+        data[index] = e;
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    /**
+     * 更新以treeIndex 为根节点，区间为[left,right] 内索引为 index 的元素
+     */
+    private void set(int treeIndex, int left, int right, int index, E e) {
+        if (left == right) {
+            tree[index] = e;
+            return;
+        }
+        //2、划分区间
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+        int middle = left + (right - left) / 2;
+        if (index>=middle+1){
+            set(rightTreeIndex,middle+1,right,index,e);
+        }else  {
+            set(leftTreeIndex,left,middle,index,e);
+        }
+        // 更新
+        tree[treeIndex] =merger.merge(tree[leftTreeIndex],tree[rightTreeIndex]);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -14,6 +14,6 @@ public class Main {
         });
         System.out.println(segmentTree);
 
-        System.out.println(segmentTree.query(0,2));
+        System.out.println(segmentTree.query(1,2));
     }
 }
