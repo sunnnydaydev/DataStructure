@@ -63,6 +63,7 @@ public class SegmentTree<E> {
         //(1)找到底的条件,写判断。
         //(2)return
         if (left == right) {
+             // left 代表数组索引区间，treeIndex代表 线段树数组表示中的索引位置
             tree[treeIndex] = data[left];//data[right] 意思一样
             return;
         }
