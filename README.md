@@ -21,7 +21,7 @@
 
 [9、线段树](https://blog.csdn.net/qq_38350635/article/details/108111009)
 
-[10、字典树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/trie/%E5%AD%97%E5%85%B8%E6%A0%91.txt)
+[10、字典树：待续](https://github.com/sunnnydaydev/DataStructure/tree/master/src/trie)
 
 [11、AVL与平衡树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/avl/avl%E5%92%8C%E5%B9%B3%E8%A1%A1%E6%A0%91)
 
