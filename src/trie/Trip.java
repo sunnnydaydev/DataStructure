@@ -53,7 +53,7 @@ public class Trip {
     }
 
     /**
-     * 向trie 中添加单词
+     * 向trie 中添加单词（添加单词不重复）
      *
      * @param word 要添加的单词字符串
      */
@@ -69,8 +69,32 @@ public class Trip {
             //最后一个单词时，标志结束。
             if (!current.isWord) {
                 current.isWord = true;
+                size++;
             }
 
         }
+    }
+
+    /**
+     * 查询 word 是否在 trie中
+     *
+     * @param word 要查询的单词
+     */
+    public boolean contains(String word) {
+        Node cur = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (cur.next.get(c) == null) {
+                return false;
+            }
+            cur = cur.next.get(c);
+        }
+        /**
+         * 节点遍历完，cur代表最后一个节点。这时不应该返回true，应该返回此节点的isWord值。
+         * 因为：可能存在这种情况用户存了panda 这个单词，未存pan这个单词。当遍历到n返回true
+         * 而用户未存储，所以出现逻辑错误。应该使用此节点的isWord判断比较精确。
+         */
+        return cur.isWord;
+
     }
 }
