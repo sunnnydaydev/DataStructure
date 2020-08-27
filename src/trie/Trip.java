@@ -91,10 +91,29 @@ public class Trip {
         }
         /**
          * 节点遍历完，cur代表最后一个节点。这时不应该返回true，应该返回此节点的isWord值。
-         * 因为：可能存在这种情况用户存了panda 这个单词，未存pan这个单词。当遍历到n返回true
+         * 因为：可能存在这种情况用户存了panda 这个单词，未存pan这个单词。若遍历到n返回true
          * 而用户未存储，所以出现逻辑错误。应该使用此节点的isWord判断比较精确。
          */
         return cur.isWord;
 
+    }
+    /**
+     * 查询trie中是否有单词前缀为 prefix
+     *
+     * @param prefix 要查询前缀
+     */
+    public boolean isPrefix(String prefix) {
+        Node cur = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            if (cur.next.get(c) == null) {
+                return false;
+            }
+            cur = cur.next.get(c);
+        }
+        /**
+         * 遍历到结尾直接返回true，前缀并不是单词。可直接返回true这里。
+         * */
+        return true;
     }
 }
