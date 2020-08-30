@@ -23,11 +23,13 @@
 
 [10、字典树](https://blog.csdn.net/qq_38350635/article/details/108297263)
 
-[11、AVL与平衡树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/avl/avl%E5%92%8C%E5%B9%B3%E8%A1%A1%E6%A0%91)
+[11、并查集](https://github.com/sunnnydaydev/DataStructure/tree/master/src/unionfind)
 
-[12、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
+[12、AVL与平衡树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/avl/avl%E5%92%8C%E5%B9%B3%E8%A1%A1%E6%A0%91)
 
-[13、hash表：待续]()
+[13、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
+
+[14、hash表：待续]()
 
 
 

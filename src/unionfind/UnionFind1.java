@@ -2,6 +2,9 @@ package unionfind;
 
 /**
  * Create by SunnyDay on 2020/08/30
+ * 基于数组的并查集。
+ * 查询时间复杂度：O(1)
+ * 合并时间复杂度：O(n)
  */
 public class UnionFind1 implements UF {
 
