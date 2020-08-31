@@ -2,18 +2,15 @@ package unionfind;
 
 /**
  * Create by SunnyDay on 2020/08/31
- * 第二版本的并查集：底层还是数组实现，但是采用树的思想。每个元素看成树的节点,孩子指向父亲。
- *
- * 查询，合并的时间复杂度o（h），h为树的深度。
+ * todo 第三版本的并查集：基于size的优化，减少树的深度。
  *
  */
-public class UnionFind2 implements UF {
+public class UnionFind3 implements UF {
 
     private int[] parent;
 
-    public UnionFind2(int size) {
+    public UnionFind3(int size) {
         parent = new int[size];
-        // // 初始化元素对应的集合，使每个元素所在集合都不同
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
         }
