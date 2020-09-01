@@ -4,6 +4,7 @@ package unionfind;
  * Create by SunnyDay on 2020/08/31
  * 第四版本的并查集：基于rank的优化。
  * 相对基于size的优化更加减少树的深度。
+ *
  */
 public class UnionFind4 implements UF {
 
