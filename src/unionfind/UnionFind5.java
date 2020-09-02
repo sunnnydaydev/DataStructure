@@ -2,16 +2,18 @@ package unionfind;
 
 /**
  * Create by SunnyDay on 2020/08/31
- * 第四版本的并查集：基于rank的优化。
- * 相对基于size的优化更加减少树的深度。
+ * 第5版本的并查集：基于rank的基础上优化，压缩路径。
+ * 相对基于rank的优化更加减少树的深度。
+ *
+ * 代码改动：基于rank优化基础上修改find方法即可。
  */
-public class UnionFind4 implements UF {
+public class UnionFind5 implements UF {
 
     private int[] parent;
 
     private int[] rank; //rank[i] 表示以i为根的集合，所表示树的层数。
 
-    public UnionFind4(int size) {
+    public UnionFind5(int size) {
         parent = new int[size];
         rank = new int[size];
 
@@ -77,6 +79,7 @@ public class UnionFind4 implements UF {
             throw new IllegalArgumentException("index is illegal !");
         }
         while (p != parent[p]) {
+            parent[p] = parent[parent[p]];// 路径压缩
             p = parent[p];
         }
         return p;
