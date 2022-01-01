@@ -1,6 +1,8 @@
 # DataStructure
 
-一 、数据结构的相关知识
+一 、数据结构
+
+>数据结构相关知识,练习于Github总结CSDN。
 
 [0、write in front](https://blog.csdn.net/qq_38350635/article/details/86742355)
 
@@ -31,8 +33,4 @@
 [13、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
 
 [14、hash表：待续]()
-
-
-[二、算法](https://github.com/sunnnydaydev/Exercise/tree/master)
-
 
