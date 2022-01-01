@@ -1,6 +1,5 @@
 # DataStructure
 
-一 、数据结构
 
 >数据结构相关知识,练习于Github总结CSDN。
 
