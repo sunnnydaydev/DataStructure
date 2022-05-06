@@ -7,6 +7,12 @@ import java.util.TreeMap;
  * custom hashTable base on TreeMap.
  */
 public class MyHashTable<K, V> {
+
+    // about resize
+    private static final int upperTol = 10;
+    private static final int lowerTol = 2;
+    private static final int initCapacity = 7;
+
     private TreeMap<K, V>[] hashTable; //TreeMap base on red black tree.
     private int M;
     private int size;
@@ -24,7 +30,7 @@ public class MyHashTable<K, V> {
      * default constructor，default capacity is 97.
      */
     public MyHashTable() {
-        this(97);
+        this(initCapacity);
     }
 
     /**
@@ -48,6 +54,9 @@ public class MyHashTable<K, V> {
         } else {
             map.put(key, value);
             size++;
+            if (size >= upperTol * M) {
+                resize(2 * M);
+            }
         }
 
     }
@@ -61,6 +70,10 @@ public class MyHashTable<K, V> {
         if (map.containsKey(key)) {
             element = map.remove(key);
             size--;
+
+            if (size <= lowerTol * M && M / 2 >= initCapacity) {
+                resize(M / 2);
+            }
         }
         return element;
     }
@@ -77,6 +90,29 @@ public class MyHashTable<K, V> {
      */
     public V get(K key) {
         return hashTable[hash(key)].get(key);
+    }
+
+    private void resize(int newM) {
+        // new array.
+        TreeMap<K, V>[] newHashTable = new TreeMap[newM];
+        for (int i = 0; i < newM; i++) {
+            newHashTable[i] = new TreeMap<>();
+        }
+
+        int oldM = M;
+        this.M = newM;
+
+        for (int i = 0; i < oldM; i++) {
+            // TreeMap element in old  array.
+            TreeMap<K, V> map = hashTable[i];
+
+            // element put into newHashTable
+            for (K key : map.keySet()) {
+                newHashTable[hash(key)].put(key, map.get(key));
+            }
+        }
+        // reset pointer
+        this.hashTable = newHashTable;
     }
 }
 
