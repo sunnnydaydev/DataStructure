@@ -31,5 +31,5 @@
 
 [13、红黑树：待续](https://github.com/sunnnydaydev/DataStructure/blob/master/src/redblacktree/%E7%BA%A2%E9%BB%91%E6%A0%91)
 
-[14、hash表：待续]()
+[14、哈希表](https://github.com/sunnnydaydev/DataStructure/tree/master/src/hashtab/HashTab.md)
 
